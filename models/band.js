@@ -1,5 +1,3 @@
-// models/band.js
-
 // band.js
 
 const { Sequelize, DataTypes, Model } = require('sequelize');
@@ -13,38 +11,39 @@ class Band extends Model {
             as: "meet_greets"
         })
     }
-  
+}
+
 Band.init(
-        {
-            band_id: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                primaryKey: true,
-                autoIncrement: true,
-            },
-            name: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            genre: {
-                type: DataTypes.TEXT,
-                allowNull: false,
-            },
-            available_start_time: {
-                type: DataTypes.DATE,
-                allowNull: false,
-            },
-            end_time: {
-                type: DataTypes.DATE,
-                allowNull: false,
-            },
+    {
+        band_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
         },
-        {
-            sequelize,
-            modelName: 'Band',
-            tableName: 'bands', // Manually set table name to 'bands'
-            timestamps: false // Disable createdAt and updatedAt columns
-  },
-    );
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        genre: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        available_start_time: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        end_time: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+    },
+    {
+        sequelize,
+        modelName: 'Band',
+        tableName: 'bands', // Manually set table name to 'bands'
+        timestamps: false // Disable createdAt and updatedAt columns
+    }
+);
 
 module.exports = Band;
